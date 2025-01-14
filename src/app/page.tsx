@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 import { getMovies } from "@/api/movie";
 
 export default async function Home() {
@@ -6,6 +9,15 @@ export default async function Home() {
   return (
     <>
       <h1>Hello Next.js</h1>
+
+      <div>
+        {movies.map((movie) => (
+          <Link href={`/movie/${movie.id}`}>
+            <Image src={movie.backdrop_path} width={180} height={240} alt={movie.title} objectFit="cover" />
+            <p>{movie.title}</p>
+          </Link>
+        ))}
+      </div>
       <p>{JSON.stringify(movies)}</p>
     </>
   );

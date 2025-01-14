@@ -4,7 +4,7 @@ interface RequestConfig extends RequestInit {
   params?: Record<string, string>;
 }
 
-async function client(endpoint: string, { params, ...customConfig }: RequestConfig) {
+async function client<T>(endpoint: string, { params, ...customConfig }: RequestConfig): Promise<T> {
   const headers = {
     "Content-Type": "application/json",
     ...customConfig.headers,
