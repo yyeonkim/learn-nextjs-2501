@@ -3,6 +3,9 @@ const API_BASE_URL = "https://nomad-movies.nomadcoders.workers.dev";
 interface RequestConfig extends RequestInit {
   params?: Record<string, string>;
 }
+interface HttpError extends Error {
+  status?: number;
+}
 
 async function client<T>(endpoint: string, { params, ...customConfig }: RequestConfig): Promise<T> {
   const headers = {
@@ -20,8 +23,16 @@ async function client<T>(endpoint: string, { params, ...customConfig }: RequestC
   const url = `${API_BASE_URL}${endpoint}${queryString}`;
 
   try {
-    const json = await fetch(url, config).then((data) => data.json());
-    return json;
+    const res = await fetch(url, config);
+    const data = await res.json();
+
+    if (!res.ok) {
+      const error = new Error(data.message || "요청에 실패했습니다.") as HttpError;
+      error.status = res.status;
+      throw error;
+    }
+
+    return data;
   } catch (error) {
     throw error;
   }
