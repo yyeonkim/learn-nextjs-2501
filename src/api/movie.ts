@@ -1,4 +1,4 @@
-import { Movie } from "@/types";
+import { Movie, Video } from "@/types";
 import { client } from "./client";
 
 async function getMovies() {
@@ -15,4 +15,11 @@ async function getMovieDetail(id: number | string) {
   return movie;
 }
 
-export { getMovieDetail, getMovies };
+async function getVideos(id: number | string) {
+  const videos = await client<Video[]>(`/movies/${id}/videos`, { method: "GET" });
+  console.log("GET movie videos:", videos);
+
+  return videos;
+}
+
+export { getMovieDetail, getMovies, getVideos };
