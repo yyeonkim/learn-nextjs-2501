@@ -1,0 +1,23 @@
+{
+  "name": "learn-nextjs-2501",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "next": "^15.1.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.6",
+    "@types/react": "19.0.6",
+    "typescript": "5.7.3"
+  }
+}
