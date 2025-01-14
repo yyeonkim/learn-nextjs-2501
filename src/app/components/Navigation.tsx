@@ -1,16 +1,22 @@
-import { memo } from "react";
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { memo } from "react";
 
 function Navigation() {
+  const path = usePathname();
+
   return (
     <nav>
       <ul>
-        <Link href="/">
-          <li>Home</li>
-        </Link>
-        <Link href="/about">
-          <li>About</li>
-        </Link>
+        <li>
+          <Link href="/">Home</Link> {path === "/" && "🔥"}
+        </li>
+        <li>
+          <Link href="/about">About</Link>
+          {path === "/about" && "🔥"}
+        </li>
       </ul>
     </nav>
   );
