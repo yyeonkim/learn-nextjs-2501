@@ -1,8 +1,12 @@
-import { client } from "@/api/client";
+import { getMovies } from "@/api/movie";
 
 export default async function Home() {
-  const movies = await client("/movies", { method: "GET" });
-  console.log("GET movies:", movies);
+  const movies = await getMovies();
 
-  return <h1>Hello Next.js</h1>;
+  return (
+    <>
+      <h1>Hello Next.js</h1>
+      <p>{JSON.stringify(movies)}</p>
+    </>
+  );
 }
