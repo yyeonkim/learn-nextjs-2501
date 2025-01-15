@@ -11,7 +11,7 @@ interface Props {
 
 async function MovieCard({ movie }: Props) {
   return (
-    <Link key={movie.id} className={styles.movieCard} href={`/movie/${movie.id}`}>
+    <Link key={movie.id} className={styles.movieCard} href={`/movie/${movie.id}`} prefetch>
       <Image className={styles.movieImg} src={movie.poster_path} width={180} height={240} alt={movie.title} />
       <p>{movie.title}</p>
     </Link>
