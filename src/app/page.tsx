@@ -13,7 +13,7 @@ export default async function Home() {
       <div>
         {movies.map((movie) => (
           <Link key={movie.id} href={`/movie/${movie.id}`}>
-            <Image src={movie.backdrop_path} width={180} height={240} alt={movie.title} objectFit="cover" />
+            <Image src={movie.backdrop_path} width={180} height={240} alt={movie.title} />
             <p>{movie.title}</p>
           </Link>
         ))}
