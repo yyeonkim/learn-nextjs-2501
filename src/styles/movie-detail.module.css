@@ -35,4 +35,6 @@
   list-style: none;
   width: 30rem;
   height: auto;
+  border-radius: 0.6rem;
+  border: none;
 }
