@@ -1,0 +1,15 @@
+.nav {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: black;
+  width: fit-content;
+  border-radius: 2.4rem;
+}
+
+.nav div {
+  width: 10rem;
+  text-align: center;
+}
